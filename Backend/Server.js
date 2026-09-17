@@ -17,6 +17,7 @@ const port = process.env.PORT || 5000
 app.use(
   cors({
     origin: [
+      "https://event-x-fw68.vercel.app/",
       "https://event-x-bice.vercel.app",
       "http://localhost:5173",
       "http://localhost:3000",
