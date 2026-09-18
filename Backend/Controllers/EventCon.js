@@ -1,4 +1,4 @@
-
+import { events } from "../../FrontEnd/src/Data/Data.js";
 import Booking from "../Models/Bookings.js";
 import EventCreate from "../Models/CreateEvents.js";
 import mongoose from "mongoose";
@@ -118,18 +118,28 @@ export const eventCreate = async (req, res) => {
   }
 };
 
-export const GetallEvent=async(req, res)=>{
-
+export const GetallEvent = async (req, res) => {
   try {
-    const events= await EventCreate.find({
-      $or: [{ approvalStatus: "approved" }, { approvalStatus: { $exists: false } }],
-    })
-    return res.status(200).json({message:"events founded", events})
-    
+    const events = await EventCreate.find({
+      $or: [
+        { approvalStatus: "approved" },
+        { approvalStatus: { $exists: false } }
+      ]
+    });
+
+    return res.status(200).json({
+      message: "events founded",
+      events
+    });
+
   } catch (error) {
-   return res.status(500).json({messsage: error.message})
+    console.error("GetallEvent Error:", error);
+
+    return res.status(500).json({
+      message: error.message
+    });
   }
-}
+};
 
 export const GetEventById= async(req, res)=>{
   try {
