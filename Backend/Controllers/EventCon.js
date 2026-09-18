@@ -1,4 +1,4 @@
-import { events } from "../../FrontEnd/src/Data/Data.js";
+
 import Booking from "../Models/Bookings.js";
 import EventCreate from "../Models/CreateEvents.js";
 import mongoose from "mongoose";
